@@ -31,7 +31,7 @@ The PHP script vpn_template_style.php fails to properly sanitize the stylenum PO
 ### Code Flow:
 1. The user sends an HTTP POST request to /vpn_template_style.php.
 2. The parameter stylenum is captured by the PHP backend.
-3. The input is passed to a shell execution function (e.g., exec(), system(), or backticks) to process template styles.
+3. The input is passed to the sslvpn_config_mod function within sslvpn_class.php, which utilizes the exec() sink to process template styles.
 4. By using shell metacharacters like $() or ;, an attacker can break out of the intended command context and execute arbitrary code.
 ---
 
@@ -55,8 +55,11 @@ Run arbitrary script file inside the router
 Telnet connection
 ![](img/telnet_connected.png)
 
-Breaking hash with john
-![](img/telnet_connected.png)
+Breaking hash with john </br>
+![](img/john_telecomadmin.png)
+
+Potential risk of DDoS (Youtube - Video) </br>
+[![YouTube](https://img.youtube.com/vi/rNwtj_dEPMw/0.jpg)](https://youtu.be/rNwtj_dEPMw)
 
 ---
 
